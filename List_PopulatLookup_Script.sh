@@ -1,7 +1,7 @@
 #!/bin/bash
 echo ServiceType,ResourceID,ResourceName,Tags > lookupfile
 
-aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId]" --output text | awk '{ print "ec2," $0; }' >> lookupfile
+aws ec2 describe-instances --filters Name=tag-key,Values=Name --query "Reservations[*].Instances[*].{Instance:InstanceId,Name:Tags[?Key=='Name']|[0].Value}" --output text | awk '{ print "ec2," $0; }' | sed 's/\t/,/g' >> lookupfile
 aws ec2 describe-images --owner self --query "Images[*].[ImageId]" --output text | awk '{ print "image," $0; }' >> lookupfile
 aws ec2 describe-security-groups --query "SecurityGroups[*].[GroupId]" --output text | awk '{ print "sg," $0; }' >> lookupfile
 aws ec2 describe-vpcs --query "Vpcs[*].[VpcId]" --output text | awk '{ print "vpc," $0; }' >> lookupfile
