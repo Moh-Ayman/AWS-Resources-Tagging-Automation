@@ -19,19 +19,19 @@
     
     Follow Below instructions to fill out the Lookup Tags as below lookup fields:
     
-      a- ServiceType: Ex. EC2 / S3	
+      a- ServiceType (Auto Filled by the List_PopulatLookup_Script.sh Script): Ex. EC2 / S3	
       
-      b- ResourceID: EC2 Instances ID or the ARN Number.	
+      b- ResourceID (Auto Filled by the List_PopulatLookup_Script.sh Script): EC2 Instances ID or the ARN Number.	
       
-      c- ResourceName: Is the Name of the EC2 Instance.
+      c- ResourceName (Auto Filled by the List_PopulatLookup_Script.sh Script): Is the Name of the EC2 Instance.
       
-      d- Tag_1: Tag will be added. Should be following convension <key;value>
+      d- Tag_1: Tag will be shoud be filled following the naming convention <key;value>
       
-      e- Tag_2:	Tag will be added. Should be following convension <key;value>
+      e- Tag_2:	Tag will be shoud be filled following the naming convention <key;value>
       
-      f- Tag_3: Tag will be added. Should be following convension <key;value>
+      f- Tag_3: Tag will be shoud be filled following the naming convention <key;value>
       
-      g- Tag_4: Tag will be added. Should be following convension <key;value>
+      g- Tag_4: Tag will be shoud be filled following the naming convention <key;value>
 
 
 
