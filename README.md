@@ -36,24 +36,20 @@
 
   6- routetable
 
-  7- nat instance
-
-  8- alb
+  7- alb
  
-  9- nlb
+  8- nlb
 
-  10- targetgroup
+  9- targetgroup
 
-  12- listner
+  10- listner
 
-  13- natgateway
+  11- natgateway
 
-  14- Transit gateway
+  12- Transit gateway
 
-  15- S3
+  13- S3
 
-  16- Cloudwatch
+  14- Cloudtrail
 
-  17- Cloudtrail
-
-  18- rds dbcluster/instance
+  15- rds dbcluster/instance
