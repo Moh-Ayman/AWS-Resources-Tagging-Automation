@@ -16,14 +16,23 @@
   2- Edit the Lookup file to add the resource Tag Key & Value Field's
     Lookup File: lookupfile
     These Tag Field's Values will be used to populate tagging for these resources.
+    
     Follow Below instructions to fill out the Lookup Tags as below lookup fields:
+    
       a- ServiceType: Ex. EC2 / S3	
+      
       b- ResourceID: EC2 Instances ID or the ARN Number.	
+      
       c- ResourceName: Is the Name of the EC2 Instance.
+      
       d- Tag_1: Tag will be added. Should be following convension <key;value>
+      
       e- Tag_2:	Tag will be added. Should be following convension <key;value>
+      
       f- Tag_3: Tag will be added. Should be following convension <key;value>
+      
       g- Tag_4: Tag will be added. Should be following convension <key;value>
+
 
 
   3- Start Bash Script: Tagging_Script.sh 
