@@ -16,23 +16,9 @@
   2- Edit the Lookup file to add the resource Tag Key & Value Field's
     Lookup File: lookupfile
     These Tag Field's Values will be used to populate tagging for these resources.
-    
-    Follow Below instructions to fill out the Lookup Tags as below lookup fields:
-    
-      a- ServiceType (Auto Filled by the List_PopulatLookup_Script.sh Script): Ex. EC2 / S3	
-      
-      b- ResourceID (Auto Filled by the List_PopulatLookup_Script.sh Script): EC2 Instances ID or the ARN Number.	
-      
-      c- ResourceName (Auto Filled by the List_PopulatLookup_Script.sh Script): Is the Name of the EC2 Instance.
-      
-      d- Tag_1: Tag will be shoud be filled following the naming convention <key;value>
-      
-      e- Tag_2:	Tag will be shoud be filled following the naming convention <key;value>
-      
-      f- Tag_3: Tag will be shoud be filled following the naming convention <key;value>
-      
-      g- Tag_4: Tag will be shoud be filled following the naming convention <key;value>
+    Tags Should be filled as below screenshot
 
+![image](https://user-images.githubusercontent.com/26026302/209585867-348d8fe0-2829-4b70-8da9-cdb57c1f7e84.png)
 
 
   3- Start Bash Script: Tagging_Script.sh 
