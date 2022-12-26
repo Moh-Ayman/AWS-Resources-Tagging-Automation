@@ -1,5 +1,5 @@
 #!/bin/bash
-echo service_name,resource_id,tag1Key,tag1Value,tag2Key,tag2Value,tag3Key,tag3Value,tag4Key,tag4Value > lookupfile
+echo ServiceType,ResourceID,ResourceName,Tags > lookupfile
 
 aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId]" --output text | awk '{ print "ec2," $0; }' >> lookupfile
 aws ec2 describe-images --owner self --query "Images[*].[ImageId]" --output text | awk '{ print "image," $0; }' >> lookupfile
