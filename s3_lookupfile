@@ -1,4 +1,4 @@
 ServiceType,ResourceID,ResourceName,Tags
-s3,S3_1000073,S3_Bucket1,key=ST;value=S3Bucket|key=test_key_1;value=test_value_Key1
-s3,S3_1000017,S3_Bucket2,key=ST;value=S3Bucket|key=dataType;value=logs|key=app;value=web|key=test_key_4;value=test_value_Key4
-s3,S3_1000077,S3_Bucket3,key=ST;value=S3Bucket
+s3,S3_1000073,,key=ST;value=S3Bucket|key=test_key_1;value=test_value_Key1
+s3,S3_1000017,,key=ST;value=S3Bucket|key=dataType;value=logs|key=app;value=web|key=test_key_4;value=test_value_Key4
+s3,S3_1000077,,key=ST;value=S3Bucket
