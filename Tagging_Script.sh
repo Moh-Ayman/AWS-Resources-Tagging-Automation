@@ -7,8 +7,9 @@ for line in $lookupdata
 do
         servicename=`echo $line | cut -d "," -f1`
         #Tags=`echo $line | cut -d "," -f4| sed -E 's/\|/ /g; s/;/,/g'`
-        Tags=`echo $line | cut -d "," -f4 | sed -E 's/\|/ /g; s/;/,/g' | sed -E 's/^/{/g; s/$/}/g' | sed -E 's/ /},{/g'`   
-        
+        #Tags=`echo $line | cut -d "," -f4 | sed -E 's/\|/ /g; s/;/,/g' | sed -E 's/^/{/g; s/$/}/g' | sed -E 's/ /},{/g'`   
+        Tags=`echo $line | cut -d "," -f4 | sed -E 's/\|/ /g; s/;/,/g' | sed -E 's/^/{/g; s/$/}/g' | sed -E 's/ /},{/g'|sed -E 's/=/:/g' | sed -E 's/Key:/"Key":/g; s/Value:/"Value":/g' | sed -E 's/:/:"/g; s/}/"}/g; s/,"/","/g
+'`
         case $servicename in
 
              ec2)
