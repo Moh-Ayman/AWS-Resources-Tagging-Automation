@@ -2,7 +2,8 @@
 
 lookupfile=$1
 
-sed 1d $lookupfile | while IFS= read -r line
+lookupdata=$(sed 1d $lookupfile)
+for line in $lookupdata
 do
         servicename=`echo $line | cut -d "," -f1`
         ID=`echo $line | cut -d "," -f2`
