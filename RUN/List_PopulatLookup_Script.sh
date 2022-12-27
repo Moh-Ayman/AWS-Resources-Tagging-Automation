@@ -16,15 +16,30 @@ echo ServiceType,ResourceID,ResourceName,Tags > trail_lookupfile
 echo ServiceType,ResourceID,ResourceName,Tags > rds_lookupfile
 
 #aws ec2 describe-instances --filters Name=tag-key,Values=Name --query "Reservations[*].Instances[*].{Instance:InstanceId,Name:Tags[?Key=='Name']|[0].Value}" --output text | awk '{ print "ec2," $0; }' | sed 's/\t/,/g' >> lookupfile
-aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId]" --output text | awk '{ print "ec2," $0; }' | awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> ec2_lookupfile
-aws ec2 describe-images --owner self --query "Images[*].[ImageId]" --output text | awk '{ print "image," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> images_lookupfile
-aws ec2 describe-security-groups --query "SecurityGroups[*].[GroupId]" --output text | awk '{ print "sg," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> sg_lookupfile
-aws ec2 describe-vpcs --query "Vpcs[*].[VpcId]" --output text | awk '{ print "vpc," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> vpc_lookupfile
-aws ec2 describe-subnets --query "Subnets[*].[SubnetId]" --output text | awk '{ print "subnet," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> subnet_lookupfile
-aws ec2 describe-route-tables --query "RouteTables[*].[RouteTableId]" --output text | awk '{ print "rt," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> rt_lookupfile
+#aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId]" --output text | awk '{ print "ec2," $0; }' | awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> ec2_lookupfile
+#aws ec2 describe-images --owner self --query "Images[*].[ImageId]" --output text | awk '{ print "image," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> images_lookupfile
+#aws ec2 describe-security-groups --query "SecurityGroups[*].[GroupId]" --output text | awk '{ print "sg," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> sg_lookupfile
+#aws ec2 describe-vpcs --query "Vpcs[*].[VpcId]" --output text | awk '{ print "vpc," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> vpc_lookupfile
+#aws ec2 describe-subnets --query "Subnets[*].[SubnetId]" --output text | awk '{ print "subnet," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> subnet_lookupfile
+#aws ec2 describe-route-tables --query "RouteTables[*].[RouteTableId]" --output text | awk '{ print "rt," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> rt_lookupfile
+aws ec2 describe-instances --filters Name=tag-key,Values=Name --query "Reservations[*].Instances[*].{Instance:InstanceId,Name:Tags[?Key=='Name']|[0].Value}" --output text | awk '{ print "ec2," $0; }' | sed 's/\t/,/g'| awk  '{ $(NF+1)=",";}1' | sed 's/ //g'
+aws ec2 describe-images --owner self --query "Images[*].{Images:ImageId,Name:Tags[?Key=='Name']|[0].Value}" --output text| awk '{ print "image," $0; }' | sed 's/\t/,/g'| awk  '{ $(NF+1)=",";}1' | sed 's/ //g'
+aws ec2 describe-security-groups --query "SecurityGroups[*].{SecurityGroups:GroupId,Name:Tags[?Key=='Name']|[0].Value}" --output text| awk '{ print "sg," $0; }' | sed 's/\t/,/g' | awk -F, '{print $1,$3,$2}' OFS=, | awk  '{ $(NF+1)=",";}1' | sed 's/ //g'
+aws ec2 describe-vpcs --query "Vpcs[*].{Vpcs:VpcId,Name:Tags[?Key=='Name']|[0].Value}" --output text | awk '{ print "vpc," $0; }' | sed 's/\t/,/g' | awk -F, '{print $1,$3,$2}' OFS=, | awk  '{ $(NF+1)=",";}1' | sed 's/ //g'
+aws ec2 describe-subnets --query "Subnets[*].{Subnets:SubnetId,Name:Tags[?Key=='Name']|[0].Value}" --output text | awk '{ print "subnet," $0; }' | sed 's/\t/,/g' | awk -F, '{print $1,$3,$2}' OFS=, | awk  '{ $(NF+1)=",";}1' | sed 's/ //g'
+aws ec2 describe-route-tables --query "RouteTables[*].{RouteTables:RouteTableId,Name:Tags[?Key=='Name']|[0].Value}" --output text | awk '{ print "rt," $0; }' | sed 's/\t/,/g' | awk -F, '{print $1,$3,$2}' OFS=, | awk  '{ $(NF+1)=",";}1' | sed 's/ //g'
+
+
+aws elbv2 describe-target-groups --query "TargetGroups[*].[TargetGroupArn,TargetGroupName]" --output text | awk '{ print "tg," $0; }' |sed 's/\t/,/g'| awk  '{ $(NF+1)=",";}1' | sed 's/ //g'
+
+
+
+
+
+
 aws elbv2 describe-load-balancers --query "LoadBalancers[*].[Type,LoadBalancerArn]" --output text | grep application | awk '{ print $2; }' | awk '{ print "alb," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> alb_lookupfile
 aws elbv2 describe-load-balancers --query "LoadBalancers[*].[Type,LoadBalancerArn]" --output text | grep network | awk '{ print $2; }' | awk '{ print "nlb," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> nlb_lookupfile
-aws elbv2 describe-target-groups --query "TargetGroups[*].[TargetGroupArn]" --output text | awk '{ print "tg," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> tg_lookupfile
+#aws elbv2 describe-target-groups --query "TargetGroups[*].[TargetGroupArn]" --output text | awk '{ print "tg," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> tg_lookupfile
 aws elbv2 describe-load-balancers --query "LoadBalancers[*].[LoadBalancerArn]" --output text | while read line
 do 
         aws elbv2 describe-listeners --load-balancer-arn $line --query "Listeners[*].[ListenerArn]" --output text | awk '{ print "listener," $0; }'| awk  '{ $(NF+1)=",,";}1' | sed 's/ //g' >> listener_lookupfile
