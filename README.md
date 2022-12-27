@@ -34,43 +34,45 @@
 
 **Usage Steps:**
 
-  ##### To Run #####
+  ##### DRY RUN #####
 
   1- Go to DRY_RUN 
 
   2- Start Bash Script: [ Tagging_Script_TESTING_Ver.sh \< Lookup File Name \> ] (Mandatory Argument: Lookup File Name )
 
-    Where it will loop on the Lookup line by line and run tagging command corresponding to the Service mentioned in the script.
+    - Where it will loop on the Lookup line by line and run tagging command corresponding to the Service mentioned in the script.
 
-    Command Example: Tagging_Script.sh ec2_lookupfile
+    - Command Example: Tagging_Script.sh ec2_lookupfile
 
   ##################
   
-  ##### To Run #####
+  ##### Run #####
 
   1- Go to RUN 
   
   2- Start Bash Script: [ List_PopulatLookup_Script.sh ] (No Options/Arguments used)
 
-    It will populate servuce's Lookups contains all resources within the current working directory.
+    - It will populate servuce's Lookups contains all resources within the current working directory.
     
-    Lookup File will be created will follow naming convension : <AWS Service Name>_lookupfile Ex. ec2_lookupfile
+    - Lookup File will be created will follow naming convension : <AWS Service Name>_lookupfile Ex. ec2_lookupfile
 
   3 - Edit the Lookup file to add the resource Tag Key & Value Field's
 
-    Tags Field will be used to populate tagging for these resources. 
+    - Tags Field will be used to populate tagging for these resources. 
 
-    Tags Should be filled as below screenshot, its naming convention is [ Key=\<KeyName\>;Value=\<valueName\>|Key=\<KeyName\>;Value=\<valueName\>|... ]
+    - Tags naming convention Should be filled as below screenshot 
+      
+      [ Key=\<KeyName\>;Value=\<valueName\>|Key=\<KeyName\>;Value=\<valueName\>|... ]
 
-    Remark: Key & Value words should be Capitalized as the above naming convension.
+    - Remark: Key & Value words should be Capitalized as the above naming convension.
 
   ![image](https://user-images.githubusercontent.com/26026302/209599819-47214593-1577-4734-94d9-0078693820e6.png)
   
-  3- Start Bash Script: [ Tagging_Script.sh \< Lookup File Name \> ] (Mandatory Argument: Lookup File Name )
+  4- Start Bash Script: [ Tagging_Script.sh \< Lookup File Name \> ] (Mandatory Argument: Lookup File Name )
 
-    Where it will loop on the Lookup line by line and run tagging command corresponding to the Service mentioned in the script.
+    - Where it will loop on the Lookup line by line and run tagging command corresponding to the Service mentioned in the script.
 
-    Command Example: Tagging_Script.sh ec2_lookupfile
+    - Command Example: Tagging_Script.sh ec2_lookupfile
 
   ##################
 
