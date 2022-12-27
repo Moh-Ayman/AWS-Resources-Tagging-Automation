@@ -15,8 +15,8 @@
 
   2- Edit the Lookup file to add the resource Tag Key & Value Field's
     Lookup File: <AWS Service Name>_lookupfile Ex. ec2_lookupfile
-    Tags Field will be used to populate tagging for these resources.
-    Tags Should be filled as below screenshot, its naming convention is <<< key=<KeyName>;value=<valueName>|key=<KeyName>;value=<valueName>|... >>>
+    Tags Field will be used to populate tagging for these resources. 
+    Tags Should be filled as below screenshot, its naming convention is [ key=\<KeyName\>;value=\<valueName\>|key=\<KeyName\>;value=\<valueName\>|... ]
 
 ![image](https://user-images.githubusercontent.com/26026302/209590444-e5672bdf-83d2-433a-8b5b-b2385ebc2705.png)
 
