@@ -11,62 +11,62 @@ do
         case $servicename in
              ec2)
                  echo ec2
-                 echo "aws ec2 create-tags --resources $ID --tags \"$Tags\""
+                 echo "aws ec2 create-tags --resources $ID --tags $Tags"
                  ;;
 
              image)
                   echo image
-                  echo "aws ec2 create-tags --resources $ID --tags \"$Tags\""
+                  echo "aws ec2 create-tags --resources $ID --tags $Tags"
                   ;;
 
              sg)
                   echo sg
-                  echo "aws ec2 create-tags --resources $ID --tags \"$Tags\""
+                  echo "aws ec2 create-tags --resources $ID --tags $Tags"
                   ;;
 
              vpc)
                   echo vpc
-                  echo "aws ec2 create-tags --resources $ID --tags \"$Tags\""
+                  echo "aws ec2 create-tags --resources $ID --tags $Tags"
                   ;;
 
              subnet)
                   echo subnet
-                  echo "aws ec2 create-tags --resources $ID --tags \"$Tags\""
+                  echo "aws ec2 create-tags --resources $ID --tags $Tags"
                   ;;
 
              rt)
                   echo routetable
-                  echo "aws ec2 create-tags --resources $ID --tags \"$Tags\""
+                  echo "aws ec2 create-tags --resources $ID --tags $Tags"
                   ;;
 
              alb)
                   echo alb
-                  echo "aws elbv2 add-tags --resource-arns $ID --tags \"$Tags\""
+                  echo "aws elbv2 add-tags --resource-arns $ID --tags $Tags"
                   ;;
 
              nlb)
                   echo nlb
-                  echo "aws elbv2 add-tags --resource-arns $ID --tags \"$Tags\""
+                  echo "aws elbv2 add-tags --resource-arns $ID --tags $Tags"
                   ;;
 
              tg)
                  echo tg
-                 echo "aws elbv2 add-tags --resource-arns $ID --tags \"$Tags\""
+                 echo "aws elbv2 add-tags --resource-arns $ID --tags $Tags"
                  ;;
 
          listener)
                  echo listener
-                 echo "aws elbv2 add-tags --resource-arns $ID --tags \"$Tags\""
+                 echo "aws elbv2 add-tags --resource-arns $ID --tags $Tags"
                   ;;
 
              ngw)
                  echo ngw
-                 echo "aws ec2 create-tags --resources $ID --tags \"$Tags\""
+                 echo "aws ec2 create-tags --resources $ID --tags $Tags"
                  ;;
 
              tgw)
                  echo tgw
-                 echo "aws ec2 create-tags --resources $ID --tags \"$Tags\""
+                 echo "aws ec2 create-tags --resources $ID --tags $Tags"
                  ;;
 
               s3)
@@ -77,12 +77,12 @@ do
 
             trail)
                  echo trail
-                 echo "aws cloudtrail add-tags --resource-id $ID --tags \"$Tags\""
+                 echo "aws cloudtrail add-tags --resource-id $ID --tags $Tags"
                  ;;
 
               rds)
                  echo rds
-                 echo "aws rds add-tags-to-resource --resource-name $ID --tags \"$Tags\""
+                 echo "aws rds add-tags-to-resource --resource-name $ID --tags $Tags"
                  ;;
 
                *)
