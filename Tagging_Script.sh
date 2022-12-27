@@ -7,7 +7,7 @@ for line in $lookupdata
 do
         servicename=`echo $line | cut -d "," -f1`
         ID=`echo $line | cut -d "," -f2`
-        Tags=`echo $line | cut -d "," -f4| sed -E "s/\|/ /g"`
+        Tags=`echo $line | cut -d "," -f4| sed -E 's/\|/ /g; s/;/,/g'`
         
         case $servicename in
 
@@ -73,7 +73,7 @@ do
 
               s3)
                  echo s3
-                 Tags=`echo $line | cut -d "," -f4| sed 's/Key/\{Key/g; s/|/},/g; s/$/}/g'`
+                 Tags=`echo $line | cut -d "," -f4| sed -E 's/\|/ /g; s/;/,/g' | sed -E 's/^/{/g; s/$/}/g' | sed -E 's/ /},{/g'`
                  aws s3api put-bucket-tagging --bucket $ID --tagging 'TagSet=[$Tags]'
                  ;;
 
