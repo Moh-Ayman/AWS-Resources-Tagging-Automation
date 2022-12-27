@@ -18,7 +18,7 @@
     These Tag Field's Values will be used to populate tagging for these resources.
     Tags Should be filled as below screenshot
 
-![image](https://user-images.githubusercontent.com/26026302/209585867-348d8fe0-2829-4b70-8da9-cdb57c1f7e84.png)
+![image](https://user-images.githubusercontent.com/26026302/209590444-e5672bdf-83d2-433a-8b5b-b2385ebc2705.png)
 
 
   3- Start Bash Script: Tagging_Script.sh 
