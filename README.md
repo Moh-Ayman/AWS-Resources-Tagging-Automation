@@ -12,7 +12,7 @@
 
 2- Generating seperate Lookupfile per Service to add Tags to it
 
-3- Automatedd Script to Creat Added Tags to Resources on AWS
+3- Automated Script to Create Added Tags to Resources on AWS
 
 **Repo Hierarchy:**
 
@@ -62,7 +62,7 @@
 
     - Tags naming convention Should be filled as below screenshot 
       
-      [ Key=\<KeyName\>;Value=\<valueName\>|Key=\<KeyName\>;Value=\<valueName\>|... ]
+      [ Key=<KeyName>;Value=<valueName>|Key=<KeyName>;Value=<valueName>|... ]
 
     - Remark: Key & Value words should be Capitalized as the above naming convension.
 
