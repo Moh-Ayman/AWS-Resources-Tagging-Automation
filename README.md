@@ -18,31 +18,41 @@
 
   1- DRY_RUN Dir used to validate Tagging Commands with extracted data from Lookup files.
 
-      - Tagging_Script.sh: Used to loop on rows in lookup files, parse info within the lookup and print the command that will be used to create the tags for validation.
+      - list_resources_DR.sh: Used to extract all resources & add it to lookups as per corresponding service. 
 
-      - ec2_lookupfile: Dummy lookupfile used to simulate the tagging mechanism 
+      - build_lookup_DR.sh: Used to auto populate dummy tags to (ec2, security groups, vpc) services lookup
 
-      - s3_lookupfile: Dummy lookupfile used to simulate the tagging mechanism
+        (ec2_dummy_lookupfile, sg_dummy_lookupfile & vpc_dummy_lookupfile) will be populated.
 
-      - sg_lookupfile: Dummy lookupfile used to simulate the tagging mechanism
+      - tag_resources_DR.sh: Used to loop on rows in lookup files, parse info within the lookup and print the command that will be used to create the tags for validation.
 
   2- RUN Dir contains latest live releases from scripts
 
-      - List_PopulatLookup_Script.sh: Used to extract all resources & add it to lookups as per corresponding service. 
+      - list_resources_R.sh: Used to extract all resources & add it to lookups as per corresponding service. 
 
-      - Tagging_Script.sh: Used to loop on rows in lookup files, parse info within the lookup and create the tags to the corressponding resource.  
+      - tag_resources_R.sh: Used to loop on rows in lookup files, parse info within the lookup and create the tags to the corressponding resource.  
 
-**Usage Steps:**
+**How to use:**
 
   ##### DRY RUN #####
 
   1- Go to DRY_RUN 
 
-  2- Start Bash Script: [ Tagging_Script_TESTING_Ver.sh \< Lookup File Name \> ] (Mandatory Argument: Lookup File Name )
+  2- Start Bash Script: [ list_resources_R.sh ] (No Options/Arguments used)
 
-    - Where it will loop on the Lookup line by line and run tagging command corresponding to the Service mentioned in the script.
+  - It will populate servuce's Lookups contains all resources within the current working directory.
+  
+  - Lookup File will be created will follow naming convension : <AWS Service Name>_lookupfile Ex. ec2_lookupfile
 
-    - Command Example: Tagging_Script.sh ec2_lookupfile
+  3- Start Bash Script: [ build_lookup_DR.sh ] (No  Options/Arguments used)
+  
+  - It will populate dummy tags automatically into (ec2, security groups, vpc) services lookup file (ec2_dummy_lookupfile, sg_dummy_lookupfile & vpc_dummy_lookupfile).
+
+  4- Start Bash Script: [ tag_resources_DR.sh \< Lookup File Name \> ] (Mandatory Argument: Dummy Lookup File Name )
+
+    - Where it will loop on the Lookup line by line and echo tagging command corresponding to the Service mentioned in the script.
+
+    - Command Example: tag_resources_DR.sh ec2_lookupfile
 
   ##################
   
@@ -50,7 +60,7 @@
 
   1- Go to RUN 
   
-  2- Start Bash Script: [ List_PopulatLookup_Script.sh ] (No Options/Arguments used)
+  2- Start Bash Script: [ list_resources_R.sh ] (No Options/Arguments used)
 
     - It will populate servuce's Lookups contains all resources within the current working directory.
     
@@ -68,11 +78,11 @@
 
   ![image](https://user-images.githubusercontent.com/26026302/209599819-47214593-1577-4734-94d9-0078693820e6.png)
   
-  4- Start Bash Script: [ Tagging_Script.sh \< Lookup File Name \> ] (Mandatory Argument: Lookup File Name )
+  4- Start Bash Script: [ tag_resources_R.sh \< Lookup File Name \> ] (Mandatory Argument: Lookup File Name )
 
     - Where it will loop on the Lookup line by line and run tagging command corresponding to the Service mentioned in the script.
 
-    - Command Example: Tagging_Script.sh ec2_lookupfile
+    - Command Example: tag_resources_R.sh ec2_lookupfile
 
   ##################
 
