@@ -88,4 +88,4 @@ do
     exit
   fi
   ((counter++))
-done < $files
+done < $file
